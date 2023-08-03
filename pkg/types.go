@@ -5,8 +5,8 @@ import "net/http"
 type REQUEST string
 
 const (
-	PC_ACCOUNT = "PLANNING_CENTER_ACCOUNT"
-	PC_AUTH    = "PLANNING_CENTER_AUTH"
+	APP_ID  = "APP_ID"
+	APP_PWD = "PASSWORD"
 )
 
 const (
@@ -15,7 +15,7 @@ const (
 )
 
 type PlanningCenter struct {
-	Account        string
-	Authentication string
-	Client         *http.Client
+	AppID       string
+	AppPassword string
+	Client      *http.Client
 }

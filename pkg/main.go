@@ -38,15 +38,16 @@ func setupPC() (*PlanningCenter, error) {
 		return nil, err
 	}
 
-	account := os.Getenv(PC_ACCOUNT)
-	auth := os.Getenv(PC_AUTH)
+	appID := os.Getenv(APP_ID)
+	pwd := os.Getenv(APP_PWD)
 
-	if account == "" || auth == "" {
+	if appID == "" || pwd == "" {
 		return nil, errors.New(".env file not setup correctly")
 	}
+
 	return &PlanningCenter{
-		Account:        account,
-		Authentication: auth,
-		Client:         &http.Client{Timeout: 30 * time.Second},
+		AppID:       appID,
+		AppPassword: pwd,
+		Client:      &http.Client{Timeout: 30 * time.Second},
 	}, nil
 }
